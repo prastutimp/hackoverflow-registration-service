@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Domain.Idea">
+            <summary>
+            The idea
+            </summary>
+        </member>
+        <member name="P:Domain.Idea.Id">
+            <summary>
+            Unique identifier
+            </summary>
+        </member>
+        <member name="P:Domain.Idea.TeamName">
+            <summary>
+            Team name
+            </summary>
+        </member>
+        <member name="P:Domain.Idea.Description">
+            <summary>
+            Brief description on the idea
+            </summary>
+        </member>
+        <member name="P:Domain.Idea.Member1">
+            <summary>
+            Team member 1
+            </summary>
+        </member>
+        <member name="P:Domain.Idea.Member2">
+            <summary>
+            Team member 2
+            </summary>
+        </member>
+        <member name="P:Domain.Idea.Created">
+            <summary>
+            Created on
+            </summary>
+        </member>
+    </members>
+</doc>

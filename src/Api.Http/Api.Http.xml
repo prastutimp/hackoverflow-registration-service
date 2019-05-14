@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api.Http</name>
+    </assembly>
+    <members>
+        <member name="M:Api.Http.Controllers.IdeasController.GetAllIdeas">
+            <summary>
+            Get all the ideas
+            </summary>
+            <returns>All the ideas</returns>
+        </member>
+        <member name="M:Api.Http.Controllers.IdeasController.GetIdea(System.String)">
+            <summary>
+            Get idea by ID
+            </summary>
+            <param name="id">Id of the idea</param>
+            <returns>The idea</returns>
+        </member>
+        <member name="M:Api.Http.Controllers.IdeasController.CreateIdea(Domain.Idea)">
+            <summary>
+            Create new idea
+            </summary>
+            <param name="idea">The idea</param>
+            <returns>Status code</returns>
+        </member>
+        <member name="M:Api.Http.Controllers.IdeasController.UpdateIdea(Domain.Idea)">
+            <summary>
+            Update idea
+            </summary>
+            <param name="idea">The idea</param>
+        </member>
+    </members>
+</doc>
