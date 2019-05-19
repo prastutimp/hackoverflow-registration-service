@@ -61,5 +61,16 @@ namespace Api.Http.Controllers
             _repository.Update(idea);
             return Ok();
         }
+
+        /// <summary>
+        /// Chart data
+        /// </summary>
+        /// <returns>Chart data</returns>
+        [HttpGet("chart")]
+        public ActionResult<ChartViewModel> GetChartData()
+        {
+            var result = _repository.GetChartData();
+            return Ok(result);
+        }
     }
 }

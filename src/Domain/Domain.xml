@@ -4,6 +4,21 @@
         <name>Domain</name>
     </assembly>
     <members>
+        <member name="T:Domain.ChartViewModel">
+            <summary>
+            Group data suitable to be displayed in a chart
+            </summary>
+        </member>
+        <member name="P:Domain.ChartViewModel.ByMembers">
+            <summary>
+            Ideas by members
+            </summary>
+        </member>
+        <member name="P:Domain.ChartViewModel.ByDate">
+            <summary>
+            Ideas by dates
+            </summary>
+        </member>
         <member name="T:Domain.Idea">
             <summary>
             The idea
@@ -37,6 +52,36 @@
         <member name="P:Domain.Idea.Created">
             <summary>
             Created on
+            </summary>
+        </member>
+        <member name="T:Domain.IdeasByDate">
+            <summary>
+            Ideas grouped by dates
+            </summary>
+        </member>
+        <member name="P:Domain.IdeasByDate.Created">
+            <summary>
+            Created on
+            </summary>
+        </member>
+        <member name="P:Domain.IdeasByDate.TeamNames">
+            <summary>
+            Team names
+            </summary>
+        </member>
+        <member name="T:Domain.IdeasByMembers">
+            <summary>
+            Ideas - grouped by members
+            </summary>
+        </member>
+        <member name="P:Domain.IdeasByMembers.Member">
+            <summary>
+            Team member
+            </summary>
+        </member>
+        <member name="P:Domain.IdeasByMembers.TeamNames">
+            <summary>
+            Team names
             </summary>
         </member>
     </members>

@@ -46,5 +46,70 @@ namespace Repository.Implementations
             idea.Created = DateTime.Now;
             _db.Ideas.InsertOne(idea);
         }
+
+        public ChartViewModel GetChartData()
+        {
+            var query = _db.Ideas.AsQueryable();
+            var ideas = query.ToList();
+
+            // by members
+            var byMembers = new Dictionary<string, List<string>>();
+
+            foreach (var idea in ideas)
+            {
+                if (!byMembers.ContainsKey(idea.Member1))
+                {
+                    byMembers.Add(idea.Member1, new List<string>());
+                }
+
+                byMembers[idea.Member1].Add(idea.TeamName);
+
+                if (idea.Member2 == null)
+                {
+                    continue;
+                }
+
+                if (!byMembers.ContainsKey(idea.Member2))
+                {
+                    byMembers.Add(idea.Member2, new List<string>());
+                }
+
+                byMembers[idea.Member2].Add(idea.TeamName);
+            }
+
+            // by date
+            var byDate = new Dictionary<DateTime, List<string>>();
+
+            foreach (var idea in ideas)
+            {
+                if (!byDate.ContainsKey(idea.Created.Value.Date))
+                {
+                    byDate.Add(idea.Created.Value.Date, new List<string>());
+                }
+
+                byDate[idea.Created.Value.Date].Add(idea.TeamName);
+            }
+
+            var result = new ChartViewModel
+            {
+                ByMembers = byMembers
+                    .Select(x => new IdeasByMembers
+                    {
+                        Member = x.Key,
+                        TeamNames = x.Value
+                    })
+                    .ToList(),
+
+                ByDate = byDate
+                    .Select(x => new IdeasByDate
+                    {
+                        Created = x.Key,
+                        TeamNames = x.Value
+                    })
+                    .ToList(),
+            };
+
+            return result;
+        }
     }
 }

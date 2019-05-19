@@ -12,5 +12,7 @@ namespace Repository.Contracts
         void Update(Idea instance);
 
         void Create(Idea idea);
+
+        ChartViewModel GetChartData();
     }
 }
