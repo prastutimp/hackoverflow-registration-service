@@ -9,6 +9,16 @@
             Group data suitable to be displayed in a chart
             </summary>
         </member>
+        <member name="P:Domain.ChartViewModel.MemberCount">
+            <summary>
+            Total number of participants
+            </summary>
+        </member>
+        <member name="P:Domain.ChartViewModel.IdeaCount">
+            <summary>
+            Total number of ideas
+            </summary>
+        </member>
         <member name="P:Domain.ChartViewModel.ByMembers">
             <summary>
             Ideas by members

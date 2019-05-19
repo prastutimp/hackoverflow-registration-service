@@ -92,6 +92,12 @@ namespace Repository.Implementations
 
             var result = new ChartViewModel
             {
+                IdeaCount = ideas.Count,
+                MemberCount = ideas
+                    .Select(x => x.Member1)
+                    .Concat(ideas.Select(x => x.Member2))
+                    .Distinct()
+                    .Where(x => x != null).Count(),
                 ByMembers = byMembers
                     .OrderByDescending(x => x.Value.Count)
                     .ThenBy(x => x.Key)

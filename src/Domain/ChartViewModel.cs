@@ -9,6 +9,16 @@ namespace Domain
     public class ChartViewModel
     {
         /// <summary>
+        /// Total number of participants
+        /// </summary>
+        public int MemberCount { get; set; }
+
+        /// <summary>
+        /// Total number of ideas
+        /// </summary>
+        public int IdeaCount { get; set; }
+
+        /// <summary>
         /// Ideas by members
         /// </summary>
         public IEnumerable<IdeasByMembers> ByMembers { get; set; }
