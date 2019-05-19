@@ -93,6 +93,8 @@ namespace Repository.Implementations
             var result = new ChartViewModel
             {
                 ByMembers = byMembers
+                    .OrderByDescending(x => x.Value.Count)
+                    .ThenBy(x => x.Key)
                     .Select(x => new IdeasByMembers
                     {
                         Member = x.Key,
@@ -101,6 +103,7 @@ namespace Repository.Implementations
                     .ToList(),
 
                 ByDate = byDate
+                    .OrderBy(x => x.Key)
                     .Select(x => new IdeasByDate
                     {
                         Created = x.Key,
