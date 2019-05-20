@@ -32,6 +32,9 @@ namespace Repository.Implementations
 
         public void Update(Idea newIdea)
         {
+            var idea = Get(newIdea.Id);
+            newIdea.Created = idea.Created;
+            
             _db.Ideas.ReplaceOne(
                 x => x.Id == newIdea.Id,
                 newIdea,
