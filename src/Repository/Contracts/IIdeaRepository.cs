@@ -5,13 +5,15 @@ namespace Repository.Contracts
 {
     public interface IIdeaRepository
     {
-        IEnumerable<Idea> GetAll();
+        IEnumerable<Idea> GetAllIdeas();
 
-        Idea Get(string id);
+        IEnumerable<Idea> GetIdeas(int pageNumber = 1, int pageCount = 10);
 
-        void Update(Idea instance);
+        Idea GetIdea(string id);
 
-        void Create(Idea idea);
+        void UpdateIdea(Idea instance);
+
+        void CreateIdea(Idea idea);
 
         ChartViewModel GetChartData();
     }

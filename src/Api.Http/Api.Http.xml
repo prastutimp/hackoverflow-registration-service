@@ -10,6 +10,14 @@
             </summary>
             <returns>All the ideas</returns>
         </member>
+        <member name="M:Api.Http.Controllers.IdeasController.GetIdeas(System.Int32,System.Int32)">
+            <summary>
+            Get paged ideas
+            </summary>
+            <param name="pageNumber">Page number</param>
+            <param name="pageCount">Page count</param>
+            <returns>Paged ideas</returns>
+        </member>
         <member name="M:Api.Http.Controllers.IdeasController.GetIdea(System.String)">
             <summary>
             Get idea by ID

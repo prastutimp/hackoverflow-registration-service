@@ -16,23 +16,34 @@ namespace Repository.Implementations
             _db = db;
         }
 
-        public Idea Get(string id)
+        public Idea GetIdea(string id)
         {
             var query = _db.Ideas.AsQueryable();
             var result = query.FirstOrDefault(i => i.Id == id);
             return result;
         }
 
-        public IEnumerable<Idea> GetAll()
+        public IEnumerable<Idea> GetAllIdeas()
         {
             var query = _db.Ideas.AsQueryable();
             var result = query.ToList();
             return result;
         }
 
-        public void Update(Idea newIdea)
+        public IEnumerable<Idea> GetIdeas(int pageNumber = 1, int pageCount = 10)
         {
-            var idea = Get(newIdea.Id);
+            var query = _db.Ideas.AsQueryable();
+            var result = query
+                .Skip(pageCount * (pageNumber - 1))
+                .Take(pageCount)
+                .ToList();
+
+            return result;
+        }
+
+        public void UpdateIdea(Idea newIdea)
+        {
+            var idea = GetIdea(newIdea.Id);
             newIdea.Created = idea.Created;
             
             _db.Ideas.ReplaceOne(
@@ -44,7 +55,7 @@ namespace Repository.Implementations
                 });
         }
 
-        public void Create(Idea idea)
+        public void CreateIdea(Idea idea)
         {
             idea.Created = DateTime.Now;
             _db.Ideas.InsertOne(idea);

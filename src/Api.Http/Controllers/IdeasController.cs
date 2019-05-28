@@ -23,7 +23,20 @@ namespace Api.Http.Controllers
         [HttpGet("all")]
         public ActionResult<IEnumerable<Idea>> GetAllIdeas()
         {
-            var result = _repository.GetAll();
+            var result = _repository.GetAllIdeas();
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// Get paged ideas
+        /// </summary>
+        /// <param name="pageNumber">Page number</param>
+        /// <param name="pageCount">Page count</param>
+        /// <returns>Paged ideas</returns>
+        [HttpGet("ideas")]
+        public ActionResult<IEnumerable<Idea>> GetIdeas(int pageNumber = 1, int pageCount = 10)
+        {
+            var result = _repository.GetIdeas(pageNumber, pageCount);
             return Ok(result);
         }
 
@@ -35,7 +48,7 @@ namespace Api.Http.Controllers
         [HttpGet("idea")]
         public ActionResult<Idea> GetIdea(string id)
         {
-            var idea = _repository.Get(id);
+            var idea = _repository.GetIdea(id);
             return Ok(idea);
         }
 
@@ -47,7 +60,7 @@ namespace Api.Http.Controllers
         [HttpPost("new")]
         public ActionResult CreateIdea(Idea idea)
         {
-            _repository.Create(idea);
+            _repository.CreateIdea(idea);
             return Ok();
         }
 
@@ -58,7 +71,7 @@ namespace Api.Http.Controllers
         [HttpPut("update-idea")]
         public ActionResult UpdateIdea(Idea idea)
         {
-            _repository.Update(idea);
+            _repository.UpdateIdea(idea);
             return Ok();
         }
 
