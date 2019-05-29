@@ -9,6 +9,8 @@ namespace Repository.Contracts
 
         IEnumerable<Idea> GetIdeas(int pageNumber = 1, int pageCount = 10);
 
+        IEnumerable<Idea> GetShortlistedIdeas();
+
         Idea GetIdea(string id);
 
         void UpdateIdea(Idea instance);

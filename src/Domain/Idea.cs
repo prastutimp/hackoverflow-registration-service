@@ -39,5 +39,10 @@ namespace Domain
         /// Created on
         /// </summary>
         public DateTime? Created { get; set; }
+
+        /// <summary>
+        /// Shortlisted idea?
+        /// </summary>
+        public bool Shortlisted { get; set; }
     }
 }

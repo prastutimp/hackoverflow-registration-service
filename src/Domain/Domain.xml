@@ -64,6 +64,11 @@
             Created on
             </summary>
         </member>
+        <member name="P:Domain.Idea.Shortlisted">
+            <summary>
+            Shortlisted idea?
+            </summary>
+        </member>
         <member name="T:Domain.IdeasByDate">
             <summary>
             Ideas grouped by dates

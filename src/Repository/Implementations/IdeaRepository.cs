@@ -30,10 +30,22 @@ namespace Repository.Implementations
             return result;
         }
 
-        public IEnumerable<Idea> GetIdeas(int pageNumber = 1, int pageCount = 10)
+        public IEnumerable<Idea> GetShortlistedIdeas()
+        {
+            var query = _db.Ideas.AsQueryable();
+
+            var result = query
+                .Where(i => i.Shortlisted)
+                .ToList();
+
+            return result;
+        }
+
+        public IEnumerable<Idea> GetIdeas(int pageNumber = 1, int pageCount = 5)
         {
             var query = _db.Ideas.AsQueryable();
             var result = query
+                .Where(i => !i.Shortlisted)
                 .Skip(pageCount * (pageNumber - 1))
                 .Take(pageCount)
                 .ToList();
@@ -58,6 +70,7 @@ namespace Repository.Implementations
         public void CreateIdea(Idea idea)
         {
             idea.Created = DateTime.Now;
+            idea.Shortlisted = false;
             _db.Ideas.InsertOne(idea);
         }
 

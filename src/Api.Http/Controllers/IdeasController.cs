@@ -34,9 +34,20 @@ namespace Api.Http.Controllers
         /// <param name="pageCount">Page count</param>
         /// <returns>Paged ideas</returns>
         [HttpGet("ideas")]
-        public ActionResult<IEnumerable<Idea>> GetIdeas(int pageNumber = 1, int pageCount = 10)
+        public ActionResult<IEnumerable<Idea>> GetIdeas(int pageNumber = 1, int pageCount = 5)
         {
             var result = _repository.GetIdeas(pageNumber, pageCount);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// Get shortlisted ideas
+        /// </summary>
+        /// <returns>Shortlisted ideas</returns>
+        [HttpGet("shortlisted-ideas")]
+        public ActionResult<IEnumerable<Idea>> GetShortlistedIdeas()
+        {
+            var result = _repository.GetShortlistedIdeas();
             return Ok(result);
         }
 

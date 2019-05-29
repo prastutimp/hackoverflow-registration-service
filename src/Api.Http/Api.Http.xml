@@ -18,6 +18,12 @@
             <param name="pageCount">Page count</param>
             <returns>Paged ideas</returns>
         </member>
+        <member name="M:Api.Http.Controllers.IdeasController.GetShortlistedIdeas">
+            <summary>
+            Get shortlisted ideas
+            </summary>
+            <returns>Shortlisted ideas</returns>
+        </member>
         <member name="M:Api.Http.Controllers.IdeasController.GetIdea(System.String)">
             <summary>
             Get idea by ID
