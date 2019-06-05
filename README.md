@@ -2,4 +2,4 @@
 
 Registration service for HackOverflow 2019
 
-[![Build Status](https://dev.azure.com/hack-overflow/HackOverflow/_apis/build/status/HackOverflow-CI?branchName=master)](https://dev.azure.com/hack-overflow/HackOverflow/_build/latest?definitionId=6&branchName=master)
+[![Build Status](https://dev.azure.com/prastutimp/Business%20Requirements/_apis/build/status/Business%20Requirements-CI?branchName=master)](https://dev.azure.com/prastutimp/Business%20Requirements/_build/latest?definitionId=1&branchName=master)
