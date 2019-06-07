@@ -39,29 +39,34 @@
             Unique identifier
             </summary>
         </member>
-        <member name="P:Domain.Idea.TeamName">
-            <summary>
-            Team name
-            </summary>
+        <member name="P:Domain.Idea.Name">
+             <summary>
+            Name of the idea
+             </summary>
         </member>
         <member name="P:Domain.Idea.Description">
             <summary>
             Brief description on the idea
             </summary>
         </member>
-        <member name="P:Domain.Idea.Member1">
+        <member name="P:Domain.Idea.Benefits">
             <summary>
-            Team member 1
+            Buisiness benifit of the idea
             </summary>
         </member>
-        <member name="P:Domain.Idea.Member2">
-            <summary>
-            Team member 2
-            </summary>
-        </member>
-        <member name="P:Domain.Idea.Created">
+        <member name="P:Domain.Idea.CreatedOn">
             <summary>
             Created on
+            </summary>
+        </member>
+        <member name="P:Domain.Idea.ModifiedOn">
+            <summary>
+            Created on
+            </summary>
+        </member>
+        <member name="P:Domain.Idea.CreatedBy">
+            <summary>
+            created by
             </summary>
         </member>
         <member name="P:Domain.Idea.Shortlisted">
@@ -97,6 +102,26 @@
         <member name="P:Domain.IdeasByMembers.TeamNames">
             <summary>
             Team names
+            </summary>
+        </member>
+        <member name="T:Domain.User">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Domain.User.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Domain.User.FirstName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Domain.User.LastName">
+            <summary>
+            
             </summary>
         </member>
     </members>

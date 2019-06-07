@@ -44,11 +44,5 @@
             </summary>
             <param name="idea">The idea</param>
         </member>
-        <member name="M:Api.Http.Controllers.IdeasController.GetChartData">
-            <summary>
-            Chart data
-            </summary>
-            <returns>Chart data</returns>
-        </member>
     </members>
 </doc>

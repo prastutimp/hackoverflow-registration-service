@@ -17,6 +17,5 @@ namespace Repository.Contracts
 
         void CreateIdea(Idea idea);
 
-        ChartViewModel GetChartData();
     }
 }

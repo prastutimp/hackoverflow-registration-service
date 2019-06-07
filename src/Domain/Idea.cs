@@ -16,9 +16,9 @@ namespace Domain
         public string Id { get; set; }
 
         /// <summary>
-        /// Team name
+        ///Name of the idea
         /// </summary>
-        public string TeamName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Brief description on the idea
@@ -26,23 +26,33 @@ namespace Domain
         public string Description { get; set; }
 
         /// <summary>
-        /// Team member 1
+        /// Buisiness benifit of the idea
         /// </summary>
-        public string Member1 { get; set; }
-
-        /// <summary>
-        /// Team member 2
-        /// </summary>
-        public string Member2 { get; set; }
+        public string Benefits { get; set; }
 
         /// <summary>
         /// Created on
         /// </summary>
-        public DateTime? Created { get; set; }
+        public DateTime? CreatedOn { get; set; }
+
+        /// <summary>
+        /// Created on
+        /// </summary>
+        public DateTime? ModifiedOn { get; set; }
+
+        /// <summary>
+        /// created by
+        /// </summary>
+        public User CreatedBy { get; set; }
 
         /// <summary>
         /// Shortlisted idea?
         /// </summary>
         public bool Shortlisted { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string InstanceName { get; set; }
     }
 }

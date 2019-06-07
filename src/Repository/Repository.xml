@@ -4,5 +4,25 @@
         <name>Repository</name>
     </assembly>
     <members>
+        <member name="M:Repository.Implementations.IdeaRepository.GetIdeas(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Repository.Implementations.IdeaRepository.UpdateIdea(Domain.Idea)">
+            <summary>
+            
+            </summary>
+            <param name="idea"></param>
+        </member>
+        <member name="M:Repository.Implementations.IdeaRepository.CreateIdea(Domain.Idea)">
+            <summary>
+            
+            </summary>
+            <param name="idea"></param>
+        </member>
     </members>
 </doc>
