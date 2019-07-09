@@ -15,6 +15,8 @@ namespace Repository.Contracts
 
         void UpdateIdea(Idea instance);
 
+        void DeleteIdea(string id);
+
         void CreateIdea(Idea idea);
 
     }

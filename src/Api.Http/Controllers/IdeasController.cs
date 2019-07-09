@@ -1,11 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Net;
 using Domain;
+using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Mvc;
+using MimeKit;
 using Repository.Contracts;
 
 namespace Api.Http.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("idea")]
     [ApiController]
     public class IdeasController : ControllerBase
     {
@@ -23,7 +27,26 @@ namespace Api.Http.Controllers
         [HttpGet("all")]
         public ActionResult<IEnumerable<Idea>> GetAllIdeas()
         {
-            var result = _repository.GetAllIdeas();
+            //var message = new MimeMessage();
+            //message.From.Add(new MailboxAddress("Prastutimp09@gmail.com"));
+            //message.To.Add(new MailboxAddress("Prastutimp09@gmail.com"));
+            //message.Subject = "New Requirement";
+            //message.Body = new TextPart("Plain")
+            //{
+            //    Text = "this is the requirement",
+            //};
+
+            //using (var client = new SmtpClient())
+            //{
+            //    client.Connect("smtp-mail.outlook.com",587,false);
+            //    client.AuthenticationMechanisms.Remove("XOAUTH2");
+            //   // var credentials = new NetworkCredential() { UserName="Prastutigowda@gmail.com", Password="Prastuti11"};
+            //    client.Authenticate("Prastutispare@outlook.com", "Prastuti@123");
+            //    client.Send(message);
+            //}
+            
+                var result = _repository.GetAllIdeas();
+            
             return Ok(result);
         }
 
@@ -72,6 +95,7 @@ namespace Api.Http.Controllers
         public ActionResult CreateIdea(Idea idea)
         {
             _repository.CreateIdea(idea);
+            SendEmail(idea);
             return Ok();
         }
 
@@ -86,5 +110,50 @@ namespace Api.Http.Controllers
             return Ok();
         }
 
+        [HttpDelete("delete-idea/{id}")]
+        public ActionResult DeleteIdea(string id)
+        {
+            _repository.DeleteIdea(id);
+            return Ok("Deleted");
+        }
+
+        private void SendEmail(Idea idea)
+        {
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("Prastuti Prasanna", "prastutimp09@gmail.com"));
+            message.To.Add(new MailboxAddress("Prastuti MP", "prastutigowda@gmail.com"));
+            message.Subject = "You have a new requirement from a client";
+
+            var builder = new BodyBuilder();
+
+            string body = $@"<div>
+            Hi Prastuti, <br/> Your client has submiited a requirement.
+            <br/>
+            Name: {idea.Name}<br/>
+            Description: {idea.Description} <br/>
+            Benefits: {idea.Benefits} <br/>
+            User: Demouser <br/>    
+            Instance Name: FR-FOOD
+            </div>";
+            builder.HtmlBody = body;
+            message.Body = builder.ToMessageBody();
+
+            try
+            {
+                var client = new SmtpClient();
+
+                client.Connect("smtp.gmail.com", 587, false); //smtp.gmail.com
+                client.Authenticate("prastutimp09@gmail.com", "Prastuti@123");
+                client.Send(message);
+                client.Disconnect(true);
+
+                Console.WriteLine("Send Mail Success.");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Send Mail Failed : " + e.Message);
+            }
+
+        }
     }
 }

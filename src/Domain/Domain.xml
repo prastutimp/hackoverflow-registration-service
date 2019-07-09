@@ -74,6 +74,11 @@
             Shortlisted idea?
             </summary>
         </member>
+        <member name="P:Domain.Idea.InstanceName">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Domain.IdeasByDate">
             <summary>
             Ideas grouped by dates

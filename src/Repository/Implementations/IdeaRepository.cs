@@ -84,5 +84,10 @@ namespace Repository.Implementations
             idea.Shortlisted = true;
             _db.Ideas.InsertOne(idea);
         }
+
+        public void DeleteIdea(string id)
+        {
+            _db.Ideas.DeleteOne(i =>i.Id.Equals(id));
+        }
     }
 }
