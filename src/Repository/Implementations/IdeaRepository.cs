@@ -64,14 +64,14 @@ namespace Repository.Implementations
         /// <param name="idea"></param>
         public void UpdateIdea(Idea idea)
         {
-             idea = GetIdea(idea.Id);
+             var oldIdea = GetIdea(idea.Id);
             idea.ModifiedOn = DateTime.UtcNow; 
             _db.Ideas.ReplaceOne(
-                x => x.Id == idea.Id,
+                x => x.Id == oldIdea.Id,
                 idea,
                 new UpdateOptions
                 {
-                    IsUpsert = true
+                   // IsUpsert = true
                 });
         }
         /// <summary>

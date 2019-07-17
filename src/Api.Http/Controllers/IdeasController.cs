@@ -107,6 +107,7 @@ namespace Api.Http.Controllers
         public ActionResult UpdateIdea(Idea idea)
         {
             _repository.UpdateIdea(idea);
+            SendEmail(idea, true);
             return Ok();
         }
 
@@ -117,18 +118,20 @@ namespace Api.Http.Controllers
             return Ok("Deleted");
         }
 
-        private void SendEmail(Idea idea)
+        private void SendEmail(Idea idea, bool isUpdate=false)
         {
+
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("Prastuti Prasanna", "prastutimp09@gmail.com"));
-            message.To.Add(new MailboxAddress("Prastuti MP", "prastutigowda@gmail.com"));
-            message.Subject = "You have a new requirement from a client";
+            message.To.Add(new MailboxAddress("Prastuti MP", "prastutimp@eurofins.com"));
+            message.Subject = isUpdate?"Your client has updated the requirement":"You have a new requirement from a client";
 
             var builder = new BodyBuilder();
 
             string body = $@"<div>
-            Hi Prastuti, <br/> Your client has submiited a requirement.
+            Hi Prastuti, <br/> Here is the Requirement details.
             <br/>
+            ID: {idea.Id}    <br/>
             Name: {idea.Name}<br/>
             Description: {idea.Description} <br/>
             Benefits: {idea.Benefits} <br/>
